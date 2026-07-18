@@ -46,19 +46,19 @@ function getUserChoice(){
   return userChoice
 }
 
-function playRound(humanChoice, computerChoice){
+function playRound(userChoice, computerChoice){
 
-  if (humanChoice === 'Rock' && computerChoice === 'Paper' || humanChoice === 'Paper' && computerChoice === 'Scissors' || humanChoice ==='Scissors' && computerChoice === 'Rock'){
+  if (userChoice === 'Rock' && computerChoice === 'Paper' || userChoice === 'Paper' && computerChoice === 'Scissors' || userChoice ==='Scissors' && computerChoice === 'Rock'){
     compScore ++;
 
-  }else if (humanChoice === 'Rock' && computerChoice === 'Scissors' || humanChoice === 'Paper' && computerChoice === 'Rock' || humanChoice ==='Scissors' && computerChoice === 'Paper'){
+  }else if (userChoice === 'Rock' && computerChoice === 'Scissors' || userChoice === 'Paper' && computerChoice === 'Rock' || userChoice ==='Scissors' && computerChoice === 'Paper'){
     userScore ++
 
   }else {
     console.log('Draw')
   }
 
-  console.log(`You chose ${humanChoice} and Computer chose ${computerChoice}`)
+  console.log(`You chose ${userChoice} and Computer chose ${computerChoice}`)
   console.log(`You:${userScore} || Computer:${compScore}`)
 }
 
@@ -67,12 +67,12 @@ function playRound(humanChoice, computerChoice){
 playGame()
 
 function playGame(){
-  const humanSelection = getUserChoice()
+  const userSelection = getUserChoice()
   const computerSelection = getCompChoice()
 
-  if(!humanSelection) return
+  if(!userSelection) return
 
-  playRound(humanSelection, computerSelection)
+  playRound(userSelection, computerSelection)
 
   if (userScore < 3 && compScore < 3){
     playGame()
