@@ -48,11 +48,16 @@ function getUserChoice(){
 
 function playRound(userChoice, computerChoice){
 
-  if (userChoice === 'Rock' && computerChoice === 'Paper' || userChoice === 'Paper' && computerChoice === 'Scissors' || userChoice ==='Scissors' && computerChoice === 'Rock'){
-    compScore ++;
+  if (userChoice === 'Rock' && computerChoice === 'Paper' || 
+    userChoice === 'Paper' && computerChoice === 'Scissors' || 
+    userChoice ==='Scissors' && computerChoice === 'Rock'){
+      compScore ++;
 
-  }else if (userChoice === 'Rock' && computerChoice === 'Scissors' || userChoice === 'Paper' && computerChoice === 'Rock' || userChoice ==='Scissors' && computerChoice === 'Paper'){
-    userScore ++
+  }else if (userChoice === 'Rock' && computerChoice === 'Scissors' || 
+    userChoice === 'Paper' && computerChoice === 'Rock' || 
+    userChoice ==='Scissors' && computerChoice === 'Paper'){
+
+      userScore ++
 
   }else {
     console.log('Draw')
