@@ -62,4 +62,15 @@ const message = document.createElement('p')
 
 document.body.appendChild (results)
 
-//add something for the score
+function showMessage(){
+
+  if (userScore === 3){ 
+    message.textContent = 'You win!'
+
+  } else if (compScore === 3){
+    message.textContent = 'You lose!'
+  }
+
+  results.appendChild(message)
+  
+}
