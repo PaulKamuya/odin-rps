@@ -20,33 +20,10 @@ function getCompChoice(){
   return computerChoice
 }
 
-function getUserChoice(){
-  let userChoice = prompt('r,s,p')
 
-  switch (userChoice){
+function playRound(userChoice){
 
-    case 'r': 
-      userChoice = 'Rock'
-    break; 
-
-    case 'p':
-      userChoice = 'Paper'
-    break;
-
-    case 's':
-      userChoice = 'Scissors'
-    break;
-
-    case '':
-      console.log('blank')
-      userChoice = getCompChoice()
-    break;
-  }
-  
-  return userChoice
-}
-
-function playRound(userChoice, computerChoice){
+  const computerChoice = getCompChoice()
 
   if (userChoice === 'Rock' && computerChoice === 'Paper' || 
     userChoice === 'Paper' && computerChoice === 'Scissors' || 
@@ -59,34 +36,30 @@ function playRound(userChoice, computerChoice){
 
       userScore ++
 
-  }else {
-    console.log('Draw')
   }
 
-  console.log(`You chose ${userChoice} and Computer chose ${computerChoice}`)
-  console.log(`You:${userScore} || Computer:${compScore}`)
+  outcome.textContent = 
+  `You chose ${userChoice} and Computer chose ${computerChoice}`
+
+  score.textContent = `You:${userScore} || Computer:${compScore}`
+  results.append(outcome,score)
+  showMessage()
 }
 
+const btn = document.querySelectorAll('button')
 
+btn.forEach(button => {
+  button.addEventListener('click',(userSelection) => {
+    userSelection = button.textContent
+    playRound(userSelection)
+  })
+})
 
-playGame()
+const results = document.createElement('div')
+const score = document.createElement('p')
+const outcome = document.createElement('p')
+const message = document.createElement('p')
 
-function playGame(){
-  const userSelection = getUserChoice()
-  const computerSelection = getCompChoice()
+document.body.appendChild (results)
 
-  if(!userSelection) return
-
-  playRound(userSelection, computerSelection)
-
-  if (userScore < 3 && compScore < 3){
-    playGame()
-  } else {
-
-    if (userScore === 3){
-      console.log('You win')
-    } else {
-      console.log('You lose')
-    }
-  }
-}
+//add something for the score
